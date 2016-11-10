@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/expandable_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        app:ael_duration="500"
+        app:ael_expanded="false"
+        app:ael_interpolator="bounce"
+        app:ael_orientation="vertical"
+        tools:context="com.oldzi.weeeather.MainActivity"
+        tools:ignore="MergeRootFrame">
+
+        <RelativeLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/addCity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:onClick="search"
+                android:src="@drawable/ic_add_24dp" />
+
+            <TextView
+                android:id="@+id/cityNameToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/app_bar_title_left_padding"
+                android:text="Los Angeles"
+                android:textColor="#fff"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/cityNameToolbar"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/margin_16"
+                    android:text="10/08/2016"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/updated_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/date_tv"
+                    android:paddingRight="@dimen/activity_vertical_margin"
+                    android:text="Updating..."
+                    android:textColor="#fff"
+                    android:textSize="8sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/temp"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@+id/app_bar"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:rowCount="1"
+            android:stretchColumns="1,2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/current_temperature_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:paddingLeft="30dp"
+                    android:text="24"
+                    android:textColor="@color/white80"
+                    android:textSize="64sp" />
+
+                <TextView
+                    android:id="@+id/celsius_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="C"
+                    android:textColor="@color/white80"
+                    android:textSize="64sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/current_temperature_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingRight="30dp"
+                android:text="O"
+                android:textColor="@color/white80"
+                android:textSize="64sp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/condition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/temp"
+            android:layout_marginBottom="3dp"
+
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="Clear"
+            android:textColor="@color/white80"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/condition_thought"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/condition"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Use spannable String"
+            android:textColor="@color/white80"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/condition_thought"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/white60" />
+
+
+        <LinearLayout
+            android:id="@+id/details_a"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/line"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-thin"
+                android:gravity="center"
+                android:paddingLeft="30dp"
+                android:text="max "
+                android:textColor="@color/white80"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/windspeed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:fontFamily="sans-serif-thin"
+                android:paddingRight="30dp"
+                android:text="min"
+                android:textColor="@color/white80"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/minMaxTemp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/details_row_height"
+            android:layout_below="@id/details_a"
+            android:background="@color/coffeePink2"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/sunrise_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="Sunrise"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_name_text_size" />
+
+                <TextView
+                    android:id="@+id/sunrise_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sunrise_tv"
+                    android:gravity="center_horizontal"
+                    android:text="@string/wi_sunrise"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/icon_details_text_size" />
+
+                <TextView
+                    android:id="@+id/sunrise_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sunrise_icon"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="6:03"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_value_text_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/sunset_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="Sunset"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_name_text_size" />
+
+                <TextView
+                    android:id="@+id/sunset_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sunset_tv"
+                    android:gravity="center"
+                    android:text="@string/wi_sunset"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/icon_details_text_size" />
+
+                <TextView
+                    android:id="@+id/sunset_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sunset_icon"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="17:56"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_value_text_size" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wind"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/details_row_height"
+            android:layout_below="@id/minMaxTemp"
+            android:background="@color/coffeePink3"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/windspeed_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="Windspeed"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_name_text_size" />
+
+                <TextView
+                    android:id="@+id/windspeed_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/windspeed_tv"
+                    android:gravity="center_horizontal"
+                    android:text="@string/wi_strong_wind"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/icon_details_text_size" />
+
+                <TextView
+                    android:id="@+id/windspeed_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/windspeed_icon"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="6:03"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_value_text_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/winddir_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="Direction"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_name_text_size" />
+
+                <TextView
+                    android:id="@+id/winddir_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/winddir_tv"
+                    android:gravity="center"
+                    android:text="@string/wi_direction_up"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/icon_details_text_size" />
+
+                <TextView
+                    android:id="@+id/winddir_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/winddir_icon"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="17:56"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_value_text_size" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/humidityDetails"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/details_row_height"
+            android:layout_below="@id/wind"
+            android:background="@color/coffeePink4"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/humidity_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="Humidity"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_name_text_size" />
+
+                <TextView
+                    android:id="@+id/humidity_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/humidity_tv"
+                    android:gravity="center_horizontal"
+                    android:text="@string/wi_humidity"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/icon_details_text_size" />
+
+                <TextView
+                    android:id="@+id/humidity_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/humidity_icon"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="6:03"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_value_text_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/snow_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="Snow"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_name_text_size" />
+
+                <TextView
+                    android:id="@+id/snow_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/snow_tv"
+                    android:gravity="center"
+                    android:text="@string/wi_snowflake_cold"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/icon_details_text_size" />
+
+                <TextView
+                    android:id="@+id/snow_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/snow_icon"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="17:56"
+                    android:textColor="@color/white80"
+                    android:textSize="@dimen/details_value_text_size" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+</ScrollView>

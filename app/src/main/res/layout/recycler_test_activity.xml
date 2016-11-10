@@ -1,0 +1,123 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/coffeePink5">
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"/>
+
+    <LinearLayout
+        android:id="@+id/main_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+    <!-- Header with city name -->
+    <RelativeLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/coffeePink1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cityNameToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_16"
+            android:text="Miami"
+            android:textColor="#fff"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/updated_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cityNameToolbar"
+            android:paddingLeft="@dimen/margin_16"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:fontFamily="sans-serif-thin"
+            android:text="@string/updating"
+            android:textColor="#fff"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <!-- End of header with city name -->
+    <!-- Clouds under the header with city name -->
+    <ImageView
+        android:id="@+id/row_clouds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/cloud_row" />
+    </LinearLayout>
+
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/multiple_actions_down"
+        fab:fab_addButtonColorNormal="@color/coffeeYellow2"
+        fab:fab_addButtonColorPressed="@color/coffeeYellow1"
+        fab:fab_addButtonPlusIconColor="@color/coffeeWhite"
+        fab:fab_expandDirection="down"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            fab:fab_colorNormal="@color/coffeeYellow1"
+            fab:fab_colorPressed="@color/coffeeYellow2"
+            fab:fab_icon="@drawable/icon_refresh"
+            fab:fab_size="mini"
+            fab:fab_title="@string/but_refresh"
+            android:onClick="onRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_remove"
+            fab:fab_colorNormal="@color/coffeeYellow1"
+            fab:fab_colorPressed="@color/coffeeYellow2"
+            fab:fab_icon="@drawable/icon_list"
+            fab:fab_title="@string/but_my_cit"
+            android:onClick="onMyCities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_gone"
+            fab:fab_colorNormal="@color/coffeeYellow1"
+            fab:fab_colorPressed="@color/coffeeYellow2"
+            fab:fab_icon="@drawable/ic_search"
+            fab:fab_title="@string/but_find_cit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onAddCity"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_add"
+            fab:fab_colorNormal="@color/coffeePink3IN"
+            fab:fab_colorPressed="@color/coffeeYellow2"
+            fab:fab_icon="@drawable/icon_add_city"
+            fab:fab_title="@string/but_add_to_my"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onAddToMyCities"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</FrameLayout>

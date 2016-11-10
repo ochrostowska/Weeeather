@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
+    xmlns:example="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/coffeePink2"
+    android:paddingTop="@dimen/cloud_header_height">
+
+    <com.oldzi.weeeather.view.ExpandablePanel
+        android:id="@+id/expandablePanel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        example:collapsedHeight="@dimen/main_header_collapsed_height"
+        example:content="@+id/value"
+        example:contentHeight="@dimen/main_row_content_height"
+        example:handle="@+id/expandablePanel"
+        example:isviewgroup="true"
+        example:viewgroup="@+id/expandL">
+
+        <LinearLayout
+            android:id="@+id/value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- Header with temperature and icon -->
+            <TextView
+                android:id="@+id/date_tv"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_16"
+                android:text="Today, September 22nd, 2016"
+
+                android:textColor="@color/coffeeYellow1"
+                android:textSize="@dimen/text_14" />
+
+            <LinearLayout
+                android:id="@+id/temp"
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:rowCount="1"
+                android:stretchColumns="1,2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/current_temperature_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif"
+                        android:gravity="end|center_vertical"
+                        android:text="24"
+                        android:textColor="@color/coffeeWhite"
+                        android:textSize="@dimen/text_74" />
+
+                    <TextView
+                        android:id="@+id/celsius_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingRight="@dimen/margin_10"
+                        android:text="@string/wi_celsius"
+                        android:textColor="@color/white80"
+                        android:textSize="@dimen/text_84" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/icon_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/wi_cloud_down"
+                    android:textColor="@color/coffeeWhite"
+                    android:textSize="@dimen/text_84" />
+            </LinearLayout>
+
+            <!-- End of Header with temp & icon-->
+
+            <!-- Conditions -->
+            <TextView
+                android:id="@+id/condition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/temp"
+                android:background="@color/coffeePink2"
+                android:gravity="center"
+                android:text="Clear"
+                android:textColor="@color/coffeeWhite"
+                android:textSize="@dimen/text_32" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/maxim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginRight="@dimen/margin_16"
+                android:layout_toRightOf="@id/icon_tv"
+                android:fontFamily="sans-serif-thin"
+                android:gravity="center"
+                android:textColor="@color/white70"
+                android:maxLines="1"
+                android:textSize="@dimen/text_18"
+                autofit:minTextSize="@dimen/text_14"
+                />
+
+
+            <!-- Details lay -->
+
+            <include layout="@layout/main_detailed_info" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/expandL"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_30"
+            android:layout_below="@+id/value"
+            android:layout_marginBottom="-5dp"
+            android:layout_marginTop="-15dp"
+            android:background="@color/coffeePink2"
+            android:clickable="true"
+            android:focusable="true"
+            android:textAllCaps="false"
+            android:textColor="@color/white80">
+
+            <ImageView
+                android:id="@+id/expand_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_arrow_down"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_16"
+                android:layout_centerInParent="true"
+                android:gravity="end"/>
+            <TextView
+                android:id="@+id/expand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/expand_arrow"
+                android:fontFamily="sans-serif-thin"
+                android:text="@string/show_me_more"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white60"
+                android:textSize="@dimen/text_14" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/header_clouds_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expand"
+            android:layout_marginTop="0dp"
+            android:adjustViewBounds="true"
+            android:background="@color/coffeePink3"
+            android:scaleType="fitXY"
+            android:scaleX="-1"
+        android:src="@drawable/cloud_row_purple" />
+
+    </com.oldzi.weeeather.view.ExpandablePanel>
+
+</RelativeLayout>

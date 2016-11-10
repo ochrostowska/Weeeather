@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="47dp"
+    android:orientation="horizontal">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_row_height"
+        android:id="@+id/row"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/locationIV"
+            android:layout_width="@dimen/margin_18"
+            android:layout_height="@dimen/margin_20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginStart="@dimen/margin_10"
+            android:src="@drawable/ic_add_location_24dp" />
+
+        <TextView
+            android:id="@+id/rowCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/locationIV"
+            android:layout_toRightOf="@+id/locationIV"
+            android:paddingLeft="@dimen/margin_16"
+
+            android:textColor="#fff"
+            android:textSize="@dimen/text_18" />
+
+        <TextView
+            android:id="@+id/rowCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/margin_16"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="@color/white60"
+            android:textSize="@dimen/text_16" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_1"
+        android:layout_below="@+id/row"
+        android:background="@color/white60"
+        />
+
+
+</RelativeLayout>

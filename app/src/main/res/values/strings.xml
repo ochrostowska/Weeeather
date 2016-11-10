@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">Weeeather</string>
+    <string name="change_city">Change city</string>
+
+    <!-- Put your own APP ID here -->
+    <string name="wunder_ground_api_key">bf6517ec4f6665b9</string>
+    <string name="forecastio_api_key">386d816ec8ca8d5b498fdecec22f13e4</string>
+
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
+
+
+    <string name="wi_barometer">&#xf079;</string>
+    <string name="wi_humidity">&#xf07a;</string>
+    <string name="wi_strong_wind">&#xf050;</string>
+    <string name="wi_direction_up">&#xf0b1;</string>
+    <string name="wi_snowflake_cold">&#xf076;</string>
+
+
+    <string name="wi_sunrise">&#xf051;</string>
+    <string name="wi_sunset">&#xf052;</string>
+
+
+    <!-- Cloud download, upload and refresh -->
+    <string name="wi_cloud_down">&#xf03d;</string>
+    <string name="wi_cloud_up">&#xf040;</string>
+    <string name="wi_cloud_refresh">&#xf03e;</string>
+
+    <string name="wi_rain_mix">&#xf017;</string>
+    <string name="wi_rain">&#xf019;</string>
+    <string name="wi_sleet">&#xf0b5;</string>
+    <string name="wi_snow">&#xf01b;</string>
+    <string name="wi_storm">&#xf01d;</string>
+    <string name="wi_sun">&#xf00d;</string>
+    <string name="wi_moon">&#xf02e;</string>
+    <string name="wi_cloudy">&#xf013;</string>
+    <string name="wi_fog">&#xf014;</string>
+    <string name="wi_mostly_cloudy">&#xf002;</string>
+    <string name="wi_mosly_sunny">&#xf00c;</string>
+
+
+    <string name="place_not_found">Sorry, no weather data found.</string>
+    <string name="updated_just_now">Updated just now!</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve">AIzaSyAY_IGgDcKLuQLfGgd3IPwo9XFlgLnzUxU</string>
+
+    <string name="wi_celsius">&#xf03c;</string>
+    <string name="wi_degrees">&#xf042;</string>
+    <string name="s">Hello</string>
+
+    <string name="maxim_rainy1">Today you can take a bath outside! :)</string>
+    <string name="maxim_snow1">Brace yourselves, Winter is coming! :)</string>
+    <string name="maxim_rainy3">Prepare for a fight with the wet clouds! :)</string>
+    <string name="maxim_rainy2">Someone\'s going to look like a drowned rat today! :)</string>
+    <string name="maxim_sunny1">Go out and feel the sun on your face! :)</string>
+    <string name="maxim_cloudy1">Chase away the clouds with your smile! :)</string>
+    <string name="maxim_foggy">Doesn\'t it feel mysterious?</string>
+    <string name="maxim_default">Smile! :)</string>
+    <string name="but_refresh">Refresh</string>
+    <string name="but_my_cit">My cities</string>
+    <string name="but_find_location">Find weather for my location</string>
+    <string name="but_find_cit">Find city</string>
+    <string name="but_add_to_my">Add to my cities</string>
+    <string name="show_me_more">...show me more!</string>
+    <string name="updating">Updated just now!</string>
+    <string name="is_one_of_your_cities_now">is one of your cities now!</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
+    <string name="windspeed">Windspeed</string>
+    <string name="wind_direction">Wind Direction</string>
+    <string name="value">value</string>
+    <string name="humidity">Humidity</string>
+    <string name="snow">Snow</string>
+    <string name="cloud_vector">cloud_vector</string>
+    <string name="show_me_less">...show me less</string>
+
+
+</resources>

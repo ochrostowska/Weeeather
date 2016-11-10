@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#181717</color>
+    <color name="colorPrimaryDark">#c74e64</color>
+    <color name="colorAccent">#3b2041</color>
+    
+    <color name="gradientOrange">#FFA323</color>
+
+    <color name="gradientPink">#FC6573</color>
+    <color name="white80">#d2ffffff</color>
+    <color name="white70">#b3ffffff</color>
+    <color name="white60">#a3ffffff</color>
+    <color name="white30">#5DFFFFFF</color>
+    <color name="white50">#7effffff</color>
+
+    <color name="coffeePink1">#c74e64</color>
+    <color name="coffeePink2">#9b4063</color>
+    <color name="coffeePink3">#773261</color>
+    <color name="coffeePink4">#552C51</color>
+    <color name="coffeePink5">#3B2041</color>
+    <color name="coffeePink5T">#c43b2041</color>
+    <color name="coffeeYellow1">#e2f6d282</color>
+    <color name="coffeeYellow2">#f6d282</color>
+    <color name="coffeeYellowVivid">#d2fce25f</color>
+    <color name="coffeeWhite">#FEFFF8</color>
+    <color name="coffeePink1IN">#77c74e64</color>
+    <color name="coffeePink3IN">#f5773261</color>
+    
+    <color name="beerYellow">#F0EC7C</color>
+    <color name="beerOrange">#DAAA55</color>
+    <color name="beerTangerine">#D06355</color>
+    <color name="beerPink">#B03E74</color>
+    <color name="beerLightPurple">#902B6E</color>
+    <color name="beerDarkPurple">#403B59</color>
+
+
+
+
+
+
+
+</resources>

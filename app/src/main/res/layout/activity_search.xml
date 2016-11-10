@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_search"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/coffeeWhite" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/cloud_white" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/search_city_ET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center_horizontal"
+        android:hint="Find your city"
+        android:inputType="textCapSentences"
+        android:textSize="30sp"
+        app:met_floatingLabel="none"
+        app:met_hideUnderline="true"
+        app:met_primaryColor="#f6f6f6"
+        app:met_singleLineEllipsis="true"
+        app:met_textColor="@color/colorPrimaryDark" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_city_ET"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <!-- toolbar dimens -->
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="app_bar_height">56dp</dimen>
+    <dimen name="app_bar_title_left_padding">72dp</dimen>
+    <dimen name="app_bar_title_bottom_padding">20dp</dimen>
+    <dimen name="icon_details_text_size">40sp</dimen>
+    <dimen name="details_row_height">120dp</dimen>
+    <dimen name="details_value_text_size">26sp</dimen>
+    <dimen name="details_name_text_size">14sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_42">42sp</dimen>
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="main_header_collapsed_height">238dp</dimen>
+    <dimen name="main_row_content_height">130dp</dimen>
+    <dimen name="cloud_header_height">90dp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_74">74sp</dimen>
+    <dimen name="text_84">84sp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="text_32">32sp</dimen>
+    <dimen name="margin_18">18dp</dimen>
+    <dimen name="search_row_height">46dp</dimen>
+    <dimen name="line_1">1dp</dimen>
+
+</resources>

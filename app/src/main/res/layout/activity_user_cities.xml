@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beerOrange">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cloud_horiz"
+        android:layout_gravity="end|bottom"
+        android:contentDescription="@string/cloud_vector"
+        android:scaleType="fitEnd"
+        />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cloud_horiz"
+        android:layout_gravity="start|bottom"
+        android:scaleType="fitEnd"
+        android:contentDescription="@string/cloud_vector"
+        android:scaleX="-1"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>
