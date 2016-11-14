@@ -59,22 +59,6 @@ public class MainPresenter implements WeatherCommunicator {
         handler = new Handler();
     }
 
-    public void downloadAllData() {
-        if (checkConnection()) {
-            cityName = "Szczecin";
-            cityLatitude = "53.428397";
-            cityLongitude = "14.551480";
-            gotAstroData = false;
-            gotWeatherData = false;
-            gotForecastIOData = false;
-            wunderWeatherManager.downloadData();
-            wunderAstrologyManager.downloadData();
-            forecastIOManager.downloadData();
-        } else {
-            Log.d("OLA", "gsgsgsg");
-        }
-    }
-
     private void showNoConnectionDialog() {
 
         final Dialog dialog = new Dialog(view);
@@ -126,8 +110,7 @@ public class MainPresenter implements WeatherCommunicator {
             wunderAstrologyManager.downloadData(latitude, longitude);
             forecastIOManager.downloadData(latitude, longitude);
         } else {
-            // TODO:
-            // MAke a dialog saying there's no connection
+            showNoConnectionDialog();
         }
     }
 
@@ -139,10 +122,6 @@ public class MainPresenter implements WeatherCommunicator {
                 activeNetwork.isConnectedOrConnecting();
         return isConnected;
     }
-
-
-
-
 
     public void downloadWeatherForCurrentLocation() {
         if(checkConnection()) {
@@ -174,7 +153,6 @@ public class MainPresenter implements WeatherCommunicator {
         if (gotWeatherData && gotAstroData && gotForecastIOData) {
             city = new City(cityName, cityLatitude, cityLongitude,
                     wunder10DayResult, wunderAstrologyResult, forecastIOWeatherResult);
-            Log.d("MOLOL", cityName);
             handler.removeCallbacksAndMessages(null);
             publish(city);
         }
@@ -207,17 +185,17 @@ public class MainPresenter implements WeatherCommunicator {
 
     @Override
     public void onParseLocationResult(String latitude, String longitude) {
-        Log.d("SRAKA", "In presenter got coords! " + latitude + " " + longitude);
+        Log.d("LOCATIONRES", "In presenter got coords! " + latitude + " " + longitude);
         Geocoder gcd = new Geocoder(view, Locale.getDefault());
         List<Address> addresses = null;
         try {
             addresses = gcd.getFromLocation(Double.valueOf(latitude), Double.valueOf(longitude), 1);
         } catch (IOException e) {
-            Log.d("SRAKA", "No adresses found");
+            Log.d("LOCATIONRES", "No adresses found");
         }
         if (addresses.size() > 0) {
             String cityName = addresses.get(0).getLocality();
-            Log.d("SRAKA", "Address is " + cityName);
+            Log.d("LOCATIONRES", "Address is " + cityName);
             downloadAllData(cityName, latitude, longitude);
         }
     }
@@ -230,9 +208,9 @@ public class MainPresenter implements WeatherCommunicator {
                     @Override
                     public void run() {
                         view.onUpdateTimer();
-                        handler.postDelayed( this, 6 * 1000 );
+                        handler.postDelayed( this, 6 * 10000 );
                     }
-                }, 6 * 1000 );
+                }, 6 * 10000 );
             }
         }
     }
