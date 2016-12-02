@@ -64,8 +64,10 @@ public class City implements Serializable {
                     hf.get(i - 2).getFCTTIME().getMonth_name(),
                     hf.get(i - 2).getFCTTIME().getYear());
             if (m < 8) {
-                day.setSunriseTime(forecastResult.getDaily().getData().get(m).getFormattedSunriseTime());
-                day.setSunsetTime(forecastResult.getDaily().getData().get(m).getFormattedSunsetTime());
+                int sunriseHour = forecastResult.getDaily().getData().get(m).getSunrise()[0]+forecastResult.getOffset()-1;
+                int sunriseMinute = forecastResult.getDaily().getData().get(m).getSunrise()[1];
+                day.setSunriseTime(forecastResult.getDaily().getData().get(m).getFormattedSunriseTime(forecastResult.getOffset()));
+                day.setSunsetTime(forecastResult.getDaily().getData().get(m).getFormattedSunsetTime(forecastResult.getOffset()));
                 m++;
             }
             days.add(day);

@@ -42,6 +42,11 @@ public class SearchPresenter implements SearchCommunicator {
         }
     }
 
+    @Override
+    public void onFailure() {
+
+    }
+
     public void cityClicked(int position) {
         String name = citiesFound.get(position).getCityName();
         String latitude = citiesFound.get(position).getLatitude();

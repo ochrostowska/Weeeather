@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface SearchCommunicator {
     void onCityFound(List<RESULT> cities);
+    void onFailure();
 }

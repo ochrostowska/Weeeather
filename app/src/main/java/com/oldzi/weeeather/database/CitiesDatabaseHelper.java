@@ -89,8 +89,6 @@ public class CitiesDatabaseHelper extends SQLiteOpenHelper {
                     values, // column/value
                     COLUMN_ID + " = ?", // selections
                     new String[]{String.valueOf(ider)}); //selection args
-
-            db.close();
         }
     }
 

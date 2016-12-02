@@ -5,6 +5,8 @@
     <!-- Put your own APP ID here -->
     <string name="wunder_ground_api_key">bf6517ec4f6665b9</string>
     <string name="forecastio_api_key">386d816ec8ca8d5b498fdecec22f13e4</string>
+    <string name="forecastio_url">https://api.forecast.io</string>
+
 
     <string name="weather_sunny">&#xf00d;</string>
     <string name="weather_clear_night">&#xf02e;</string>
@@ -55,7 +57,7 @@
     <string name="wi_degrees">&#xf042;</string>
     <string name="s">Hello</string>
 
-    <string name="maxim_rainy1">Today you can take a bath outside! :)</string>
+    <string name="maxim_rainy1">You can take a bath outside today! :)</string>
     <string name="maxim_snow1">Brace yourselves, Winter is coming! :)</string>
     <string name="maxim_rainy3">Prepare for a fight with the wet clouds! :)</string>
     <string name="maxim_rainy2">Someone\'s going to look like a drowned rat today! :)</string>

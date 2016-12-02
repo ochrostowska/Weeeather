@@ -16,29 +16,22 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.oldzi.weeeather.city_weather.ForecastIOManager;
 import com.oldzi.weeeather.city_weather.LocationManager;
 import com.oldzi.weeeather.city_weather.WeatherCommunicator;
-import com.oldzi.weeeather.city_weather.WunderAstrologyManager;
-import com.oldzi.weeeather.city_weather.WunderWeatherManager;
 import com.oldzi.weeeather.city_weather.data.City;
 import com.oldzi.weeeather.database.CitiesDatabaseHelper;
 import com.oldzi.weeeather.json.forecastIOWeather.ForecastIOWeatherResult;
 import com.oldzi.weeeather.json.wunder10DayForecast.Wunder10DayResult;
 import com.oldzi.weeeather.json.wunderAstronomy.WunderAstrologyResult;
+import com.oldzi.weeeather.network_calls.ForecastManager;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Oldzi on 11.08.2016.
- */
 public class MainPresenter implements WeatherCommunicator {
 
-    private WunderWeatherManager wunderWeatherManager;
-    private WunderAstrologyManager wunderAstrologyManager;
-    private ForecastIOManager forecastIOManager;
+    private ForecastManager manager;
     private Wunder10DayResult wunder10DayResult;
     private WunderAstrologyResult wunderAstrologyResult;
     private ForecastIOWeatherResult forecastIOWeatherResult;
@@ -52,9 +45,7 @@ public class MainPresenter implements WeatherCommunicator {
 
     public MainPresenter(MainActivity view) {
         this.view = view;
-        wunderAstrologyManager = new WunderAstrologyManager(this);
-        wunderWeatherManager = new WunderWeatherManager(this);
-        forecastIOManager = new ForecastIOManager(this);
+        manager = new ForecastManager(this);
         dbHelper = new CitiesDatabaseHelper(view);
         handler = new Handler();
     }
@@ -106,9 +97,9 @@ public class MainPresenter implements WeatherCommunicator {
             }
             if (addresses!=null)
                 Log.d("MAMA", addresses.get(0).getLocality());
-            wunderWeatherManager.downloadData(latitude, longitude);
-            wunderAstrologyManager.downloadData(latitude, longitude);
-            forecastIOManager.downloadData(latitude, longitude);
+            manager.downloadData(latitude, longitude);
+            manager.downloadForecastIOData(latitude, longitude);
+            manager.downloadAstroData(latitude, longitude);
         } else {
             showNoConnectionDialog();
         }
@@ -123,9 +114,11 @@ public class MainPresenter implements WeatherCommunicator {
         return isConnected;
     }
 
+    // TODO:
+    // I'm working here!!
     public void downloadWeatherForCurrentLocation() {
         if(checkConnection()) {
-            LocationManager locationManager = new LocationManager(this, view);
+            LocationManager locationManager = LocationManager.getInstance(this, view);
             locationManager.getCoordinates();
         } else {
             showNoConnectionDialog();
@@ -191,6 +184,7 @@ public class MainPresenter implements WeatherCommunicator {
         try {
             addresses = gcd.getFromLocation(Double.valueOf(latitude), Double.valueOf(longitude), 1);
         } catch (IOException e) {
+            view.showDialog(false);
             Log.d("LOCATIONRES", "No adresses found");
         }
         if (addresses.size() > 0) {
@@ -198,6 +192,12 @@ public class MainPresenter implements WeatherCommunicator {
             Log.d("LOCATIONRES", "Address is " + cityName);
             downloadAllData(cityName, latitude, longitude);
         }
+    }
+
+    @Override
+    public void onFailure() {
+        if(!checkConnection()) showNoConnectionDialog();
+        else view.showDialog(false);
     }
 
     private void publish(City city) {

@@ -28,11 +28,20 @@ public class LocationManager implements GoogleApiClient.ConnectionCallbacks, Goo
     private WeatherCommunicator weatherCommunicator;
     private Context context;
 
+    private static LocationManager ourInstance;
+
     public LocationManager(WeatherCommunicator weatherCommunicator, Context context) {
         this.weatherCommunicator = weatherCommunicator;
         this.context = context;
         initialize();
     }
+
+    public static LocationManager getInstance(WeatherCommunicator weatherCommunicator, Context context) {
+        if(ourInstance==null) ourInstance = new LocationManager(weatherCommunicator, context);
+        return ourInstance;
+    }
+
+    public LocationManager() {}
 
     private void initialize() {
         googleApiClient = new GoogleApiClient.Builder(context)

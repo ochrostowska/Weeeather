@@ -3,10 +3,10 @@ package com.oldzi.weeeather.json.wunderAstronomy;
 
 public class Sunrise {
 
-    private int hour;
+    private String hour;
     private String minute;
 
-    public int getHour() {
+    public String getHour() {
         return hour;
     }
 
