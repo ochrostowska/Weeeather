@@ -9,4 +9,5 @@ public interface WeatherCommunicator {
     void onParseResult(WunderAstrologyResult result);
     void onParseResult(ForecastIOWeatherResult result);
     void onParseLocationResult(String latitude, String longitude);
+    void onFailure();
 }
